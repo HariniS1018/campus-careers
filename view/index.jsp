@@ -17,7 +17,7 @@ pageEncoding="UTF-8"%>
             <div class="content">CAMPUS CAREERS</div>
         </div>
         <div class="side_buttons">
-            <a href="http://localhost:8080/campus_careers/views/Index.jsp">
+            <a href="<%= request.getContextPath() %>/views/Index.jsp">
                 <div class="side_button">Home</div>
             </a>
             <a href="" onclick="scrolldown">
@@ -32,11 +32,11 @@ pageEncoding="UTF-8"%>
     <div class="bg_img"> </div>
     
     <div class="buttons">
-        <a href="http://localhost:8080/campus_careers/views/AdminLogin.jsp" class="admin_box" id="admin" name="admin">
+        <a href="<%= request.getContextPath() %>/views/AdminLogin.jsp" class="admin_box" id="admin" name="admin">
         ADMIN
         </a>
         
-        <a href="http://localhost:8080/campus_careers/views/ApplicantLogin.jsp" class="applicant_box" id="applicant" name="applicant">
+        <a href="<%= request.getContextPath() %>/views/ApplicantLogin.jsp" class="applicant_box" id="applicant" name="applicant">
         APPLICANT
         </a>
            
