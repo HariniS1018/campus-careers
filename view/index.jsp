@@ -17,7 +17,7 @@ pageEncoding="UTF-8"%>
             <div class="content">CAMPUS CAREERS</div>
         </div>
         <div class="side_buttons">
-            <a href="http://localhost:8080/campus_careers/views/welcome.jsp">
+            <a href="http://localhost:8080/campus_careers/views/index.jsp">
                 <div class="side_button">Home</div>
             </a>
             <a href="" onclick="scrolldown">
