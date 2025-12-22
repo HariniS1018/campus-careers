@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WELCOME</title>
+<title>campus-careers</title>
 <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
