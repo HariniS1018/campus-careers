@@ -1,0 +1,32 @@
+.blocks{
+    display: flex;
+    background-color: indigo;
+    color: white;
+}
+.logo_inner{
+    display: flex;
+    margin: 15px;
+    padding: 5px;
+}
+img{
+    width: 25px;
+    height: 20px;
+    padding: 5px;
+}
+.content
+{
+    padding: 5px;
+}
+.side_buttons{
+    display: flex;
+    margin-left: 65%;
+    padding: 5px;
+}
+.side_button{
+    width: 80px;
+    margin-top: 20%;
+}
+a{
+    color: white;
+    text-decoration: none;
+}

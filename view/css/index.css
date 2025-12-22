@@ -1,49 +1,9 @@
-.screen-container{
-    color: white;
-}
-.blocks{
-    display: flex;
-    background-color: indigo;
-}
-.logo_inner{
-    display: flex;
-    margin: 15px;
-    padding: 5px;
-}
-img{
-    width: 25px;
-    height: 20px;
-    padding: 5px;
-}
-.content
-{
-    padding: 5px;
-}
-.side_buttons{
-    display: flex;
-    color: white;
-    margin-left: 950px;
-    padding: 5px;
-}
-.side_button{
-    width: 80px;
-    margin-top: 20%;
-}
-a{
-    color: white;
-    text-decoration: none;
-}
 .bg_img{
     height: 350px;
     background-image: url('../../images/welcome-banner.jpg');
     background-size: cover; /* Scale image to cover entire area */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent tiling */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 2px 2px 4px white(0,0,0,0.7); /* Make text readable */
 }
 .buttons{
     margin-top: 3%;
@@ -64,18 +24,4 @@ a{
 }
 .admin_box:hover, .applicant_box:hover{
     opacity: 1;
-}
-.footer{
-    height: 100px;
-    background-color: indigo;
-    display: block;
-}
-.footer_icons{
-    margin-left: 40%;
-    margin-top: 1%;  
-}
-.footer_msg{
-    margin-left: 41%; 
-    margin-top: 5%; 
-    padding-top: 25px;
 }
