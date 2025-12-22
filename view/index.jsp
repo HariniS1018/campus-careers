@@ -23,7 +23,7 @@ pageEncoding="UTF-8"%>
             <a href="" onclick="scrolldown">
                 <div class="side_button">Service</div>
             </a>
-            <a href="https://www.annauniv.edu/CUICCentre/internship.html" >
+            <a href="" >
                 <div class="side_button">About</div>
             </a>
         </div>
