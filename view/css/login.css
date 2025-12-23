@@ -1,9 +1,12 @@
+.form-box{
+    display: flex;
+    justify-content: center;
+}
 .box{
     padding: 20px;
     border: thin solid lightgray;
     color: indigo;
-    margin-top: 70px;
-    margin-left: 450px;
+    margin-top: 50px;
     font-size: 20px;
     width: 400px;
 }

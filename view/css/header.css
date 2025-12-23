@@ -2,6 +2,7 @@
     display: flex;
     background-color: indigo;
     color: white;
+    justify-content: space-between;
 }
 .logo_inner{
     display: flex;
@@ -19,7 +20,6 @@ img{
 }
 .side_buttons{
     display: flex;
-    margin-left: 60%;
     align-items: center;
     justify-content: center;
 }

@@ -17,27 +17,16 @@ pageEncoding="UTF-8"%>
                     <img src="images/logo.jpg"> 
                     <div class="content">CAMPUS CAREERS</div>
                 </div>
-                <div class="side_buttons">
-                    <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                        <div class="side_button">Home</div>
-                    </a>
-                    <a href="" onclick="scrolldown">
-                        <div class="side_button">Service</div>
-                    </a>
-                    <a href="" >
-                        <div class="side_button">About</div>
-                    </a>
-                </div>
             </div>
             
             <div class="bg_img"> </div>
             
             <div class="buttons">
-                <a href="<%= request.getContextPath() %>/views/AdminLogin.jsp" class="admin_box" id="admin" name="admin">
+                <a href="<%= request.getContextPath() %>/view/AdminLogin.jsp" class="admin_box" id="admin" name="admin">
                 ADMIN
                 </a>
                 
-                <a href="<%= request.getContextPath() %>/views/ApplicantLogin.jsp" class="applicant_box" id="applicant" name="applicant">
+                <a href="<%= request.getContextPath() %>/view/ApplicantLogin.jsp" class="applicant_box" id="applicant" name="applicant">
                 APPLICANT
                 </a>
                 

@@ -1,15 +1,15 @@
 .footer{
-    height: 100px;
+    height: 90px;
     background-color: indigo;
     display: block;
     color: white;
 }
 .footer_icons{
     margin-left: 40%;
-    margin-top: 1%;  
+    margin-top: 5px;  
 }
 .footer_msg{
-    margin-left: 41%; 
+    margin-left: 550px; 
     margin-top: 5%; 
-    padding-top: 25px;
+    padding-top: 15px;
 }

@@ -6,32 +6,26 @@ pageEncoding="UTF-8"%>
 <head>
     <title>password-recovery</title>
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/recover_password.css">
 </head>
 
 <body>
-    <form action="RecoveryPassword" onsubmit="return validate()" method="post">
-
-        <div class="blocks">
-            <div class="logo_inner">
-                <img src="images/logo.jpg"> 
-                <div class="content">CAMPUS CAREERS</div>
-            </div>
-            <div class="side_buttons">
-                <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                    <div class="side_button">Home</div>
-                </a>
-                <a href="" onclick="scrolldown">
-                    <div class="side_button">Service</div>
-                </a>
-                <a href="" >
-                    <div class="side_button">About</div>
-                </a>
-            </div>
+    <div class="blocks">
+        <div class="logo_inner">
+            <img src="images/logo.jpg"> 
+            <div class="content">CAMPUS CAREERS</div>
         </div>
-        
+        <div class="side_buttons">
+            <a href="<%= request.getContextPath() %>/view/Index.jsp">
+                <div class="side_button">Home</div>
+            </a>
+        </div>
+    </div>
+    
+    <form action="RecoverPassword" onsubmit="return validate()" method="post" class="form-box">        
         <div class="box">
-        
             <h1 class="heading">RECOVER PASSWORD</h1>
             <hr><br>
 
@@ -51,13 +45,18 @@ pageEncoding="UTF-8"%>
             </div>                    
                 
             <div class="form-group">
-                <input  type="submit" id="but" value="Submit" onclick="validate()">
-                <input type="reset" id="but" value="Reset">
+                <input class="loginbutton" type="submit" id="submit" value="Submit" onclick="validate()">
+                <input class="resetbutton" type="reset" id="reset" value="Reset">
             </div>
-
         </div>
     </form>
 
+    <div class="footer">
+        <div class="footer_msg">Reach us</div>
+        <a href=""><img class="footer_icons" src="images/LinkedIn.jpg"></a>
+        <a href=""><img src="images/email.jpg" ></a>
+    </div>
+    
     <script>
         function validate(){
             pass1Obj = document.getElementById("npass")
@@ -66,7 +65,7 @@ pageEncoding="UTF-8"%>
                 return true;
             }
             else{
-                alert("password mismatch");
+                alert("Password Mismatch");
                 return false;
             }
         }
