@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ page import="controller.AdminLoginServlet" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +13,10 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body>
-    <form action="Admin" method="post">
+    <form action="AdminLoginServlet" method="post">
         <div class="blocks">
             <div class="logo_inner">
-                <img src="../images/logo.jpg"> 
+                <img src="images/logo.jpg"> 
                 <div class="content">CAMPUS CAREERS</div>
             </div>
             <div class="side_buttons">
@@ -60,8 +62,8 @@ pageEncoding="UTF-8"%>
 
         <div class="footer">
             <div class="footer_msg">Reach us</div>
-            <a href=""><img class="footer_icons" src="../images/LinkedIn.jpg"></a>
-            <a href=""><img src="../images/email.jpg" ></a>
+            <a href=""><img class="footer_icons" src="images/LinkedIn.jpg"></a>
+            <a href=""><img src="images/email.jpg" ></a>
         </div>
         
         <script>

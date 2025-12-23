@@ -1,6 +1,6 @@
 .bg_img{
     height: 350px;
-    background-image: url('../../images/welcome-banner.jpg');
+    background-image: url('../images/welcome-banner.jpg');
     background-size: cover; /* Scale image to cover entire area */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent tiling */

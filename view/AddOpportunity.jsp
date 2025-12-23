@@ -1,53 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>add-new-jobs-(admin)</title>
-    <link rel="stylesheet" type="text/css" href="./css/header.css">
-    <link rel="stylesheet" type="text/css" href="./css/add_new_offer.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>add-new-jobs-(admin)</title>
+        <link rel="stylesheet" type="text/css" href="./css/header.css">
+        <link rel="stylesheet" type="text/css" href="./css/add_opportunity.css">
+    </head>
 
-<body>
-    <form action="Interview_details" method="post">
-        <div class="blocks">
-            <div class="logo_inner">
-                <img src="../images/logo.jpg"> 
-                <div class="content">CAMPUS CAREERS</div>
+    <body>
+        <form action="ViewOpportunityAdmin" method="post">
+            <div class="blocks">
+                <div class="logo_inner">
+                    <img src="images/logo.jpg"> 
+                    <div class="content">CAMPUS CAREERS</div>
+                </div>
+                <div class="side_buttons">
+                    <a href="<%= request.getContextPath() %>/views/Index.jsp">
+                        <div class="side_button">Home</div>
+                    </a>
+                    <a href="<%= request.getContextPath() %>/views/ViewOpportunityAdmin.jsp">
+                        <div class="side_button">View Offers</div>
+                    </a>
+                    </a>
+                    <a href="">
+                        <div class="side_button">About</div>
+                    </a>
+                    <a href="<%= request.getContextPath() %>/views/LogOut.jsp">
+                        <div class="side_button">log out</div>
+                    </a>
+                    
+                </div>
             </div>
-            <div class="side_buttons">
-                <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                    <div class="side_button">Home</div>
-                </a>
-                <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                    <div class="side_button">View Offers</div>
-                </a>
-                </a>
-                <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                    <div class="side_button">About</div>
-                </a>
-                <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                    <div class="side_button">log out</div>
-                </a>
+            
+            
+            <div class="box">
                 
-            </div>
-        </div>
-        
-        
-        <div class="box">
-        <table>
-            <tr><h1 class="heading">FILL IN THE DETAILS</h1></tr>
-            
-            <hr>
-            
+                <h1 class="heading">FILL IN THE DETAILS</h1>
+                <hr>
+                
                 <div class="form-group">
                     <label for="dname">Departments Allowed</label>
                     <input type="text" id="dname" name="dname" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="cname">Company name</label>
+                    <label for="cname">Company Name</label>
                     <input type="text" id="cname" name="cname" required/>
                 </div>
 
@@ -57,11 +57,11 @@ pageEncoding="UTF-8"%>
                 </div>
 
                 <div class="form-group">
-                    <label>Job type</label>
+                    <label>Job Type</label>
                     <div class="radio-inputs">
                         <label>
                             <input type="checkbox" name="JT" required />
-                            Placement
+                            Full-Time
                         </label>
                         <label>
                             <input type="checkbox" name="JT" required />
@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
                 </div>
 
                 <div class="form-group">
-                    <label for="JStart">Job Start date</label>
+                    <label for="JStart">Job Start Date</label>
                     <input type="date" id="JStart" name="JStart"/>
                 </div>
 
@@ -81,17 +81,17 @@ pageEncoding="UTF-8"%>
                 </div>
 
                 <div class="form-group">
-                    <label for="venue">Interview venue:</label>
+                    <label for="venue">Interview Venue</label>
                     <input type="text" id="venue" name="venue" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="date">Interview date</label>
+                    <label for="date">Interview Date</label>
                     <input type="date" id="date" name="date" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="time">Interview time</label>
+                    <label for="time">Interview Time</label>
                     <input type="time" id="time" name="time" required/>
                 </div>
 
@@ -99,8 +99,8 @@ pageEncoding="UTF-8"%>
                     <input type="submit" id="but" value="submit"/>
                     <input type="reset" id="but" value="reset"/>
                 </div>
-        </table>
-        </div>
-    </form>
-</body>
+                
+            </div>
+        </form>
+    </body>
 </html>

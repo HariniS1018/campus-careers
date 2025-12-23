@@ -15,7 +15,7 @@
         <title>view-active-opportunities-applicant</title>
         <link rel="stylesheet" type="text/css" href="./css/header.css">
         <link rel="stylesheet" type="text/css" href="./css/footer.css">
-        <link rel="stylesheet" type="text/css" href="./css/view_opportunity_admin.css">
+        <link rel="stylesheet" type="text/css" href="./css/view_opportunity.css">
     </head>
 
     <body>
@@ -29,13 +29,10 @@
 
         <div class="blocks">
             <div class="logo_inner">
-                <img src="../images/logo.jpg"> 
+                <img src="images/logo.jpg"> 
                 <div class="content">CAMPUS CAREERS</div>
             </div>
             <div class="side_buttons">
-                <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                    <div class="side_button">Home</div>
-                </a>
                 <a href="<%= request.getContextPath() %>/views/ViewAppliedOpportunity.jsp">
                     <div class="side_button">View Applied Offers</div>
                 </a>
@@ -72,7 +69,7 @@
             <div class='card-text'>Interview: <b><%=In_time %></b> Hrs on <b><%=In_date %></b> in <b><%=venue %></b></div>
             
             <div class='card-buttons'>
-                <a href ='<%= request.getContextPath() %>/views/ApplyOffer.jsp?jobid=<%=jobid %>'>
+                <a href ='<%= request.getContextPath() %>/views/ApplyOpportunity.jsp?jobid=<%=jobid %>'>
                     <button>Apply</button>
                 </a>  
             </div>
