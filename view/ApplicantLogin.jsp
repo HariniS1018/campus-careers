@@ -50,7 +50,7 @@ pageEncoding="UTF-8"%>
                     <input class="resetbutton" type="reset" id="but" value="reset"/>
                     <br>
                 </div>
-                <a class="forgotpwd" href="">Forgot password?</a>
+                <a class="forgotpwd" href="<%= request.getContextPath() %>/views/RecoveryPassword.jsp">Forgot password?</a>
             </div>
 
             <div class="footer">
