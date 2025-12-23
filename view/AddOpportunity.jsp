@@ -18,9 +18,6 @@ pageEncoding="UTF-8"%>
                     <div class="content">CAMPUS CAREERS</div>
                 </div>
                 <div class="side_buttons">
-                    <a href="<%= request.getContextPath() %>/views/Index.jsp">
-                        <div class="side_button">Home</div>
-                    </a>
                     <a href="<%= request.getContextPath() %>/views/ViewOpportunityAdmin.jsp">
                         <div class="side_button">View Offers</div>
                     </a>
@@ -76,8 +73,8 @@ pageEncoding="UTF-8"%>
                 </div>
 
                 <div class="form-group">
-                    <label for="JEnd">Job End date</label>
-                    <input type="date" id="JEnd" name="JEnd"/>
+                    <label for="duration">Job Duration</label>
+                    <input type="text" id="duration" name="duration" value="duration" required/>
                 </div>
 
                 <div class="form-group">
