@@ -14,7 +14,7 @@
         <title>view-active-opportunities-admin</title>
         <link rel="stylesheet" type="text/css" href="./css/header.css">
         <link rel="stylesheet" type="text/css" href="./css/footer.css">
-        <link rel="stylesheet" type="text/css" href="./css/view_opportunity_admin.css">
+        <link rel="stylesheet" type="text/css" href="./css/view_opportunity.css">
     </head>
 
     <body>
