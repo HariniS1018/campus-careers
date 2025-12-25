@@ -52,7 +52,7 @@
                     <a href="<%= request.getContextPath() %>/views/ViewOpportunityAdmin.jsp">
                         <div class="side_button">View Offers</div>
                     </a>
-                    <a href="<%= request.getContextPath() %>/views/LogOut.jsp">
+                    <a href="<%= request.getContextPath() %>/LogOutController">
                         <div class="side_button">Log out</div>
                     </a>
                 </div>

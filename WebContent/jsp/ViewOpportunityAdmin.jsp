@@ -29,7 +29,7 @@ if (isLoggedin != null && isLoggedin){
                     <a href="<%= request.getContextPath() %>/jsp/AddOpportunity.jsp">
                         <div class="side_button">Add Offers</div>
                     </a>
-                    <a href="<%= request.getContextPath() %>/jsp/LogOut.jsp">
+                    <a href="<%= request.getContextPath() %>/LogOutController">
                         <div class="side_button">Log out</div>
                     </a>
                 </div>
