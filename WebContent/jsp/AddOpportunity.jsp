@@ -53,12 +53,10 @@ pageEncoding="UTF-8"%>
                     <label>Job Type</label>
                     <div class="radio-inputs">
                         <label>
-                            <input type="checkbox" name="JT" required />
-                            Full-Time
+                            <input type="checkbox" name="JT" value="Full-Time" required/> Full-Time
                         </label>
                         <label>
-                            <input type="checkbox" name="JT" required />
-                            Internship
+                            <input type="checkbox" name="JT" value="Internship" required/> Internship
                         </label>
                     </div>
                 </div>

@@ -30,6 +30,20 @@ pageEncoding="UTF-8"%>
             <hr><br>
 
             <div class="form-group">
+                <label>ROLE</label>
+                <div class="radio-inputs">
+                    <label>
+                        <input type="radio" name="urole" value="admin" required/>
+                        Admin
+                    </label>
+                    <label>
+                        <input type="radio" name="urole" value="applicant" required/>
+                        Applicant
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="uid">User ID</label>
                 <input required type="text" id="uid" name="uid" placeholder="user ID">
             </div>

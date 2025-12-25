@@ -2,4 +2,4 @@
 *.html
 .env
 .vscode/
-.bin/
+bin/

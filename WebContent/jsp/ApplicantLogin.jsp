@@ -25,6 +25,12 @@ pageEncoding="UTF-8"%>
         </div>
         
         <% 
+            String sessMessage = (String) session.getAttribute("message");
+            if (sessMessage != null) {
+                out.print("<div class='success'>" + sessMessage + "</div>");
+                session.removeAttribute("message");
+            }
+
             String reqErrorMsg = (String) request.getAttribute("errorMessage"); %>
             if (reqErrorMsg != null) {
                 out.print("<div class='error'>" + reqErrorMsg + "</div>");
@@ -33,7 +39,7 @@ pageEncoding="UTF-8"%>
             String sessErrorMsg = (String) session.getAttribute("errorMessage");
             if (sessErrorMsg != null) {
                 out.print("<div class='error'>" + sessErrorMsg + "</div>");
-                session.removeAttribute("sessErrorMsg");
+                session.removeAttribute("errorMessage");
             }
         %>
         
