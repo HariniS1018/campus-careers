@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
-<%@ page import="controller.ApplicantLoginServlet" %>
 
 <!DOCTYPE html>
 <html>
@@ -15,11 +14,11 @@ pageEncoding="UTF-8"%>
     <body>
         <div class="blocks">
             <div class="logo_inner">
-                <img src="../images/logo.jpg"> 
+                <img src="images/logo.jpg"> 
                 <div class="content">CAMPUS CAREERS</div>
             </div>
             <div class="side_buttons">
-                <a href="<%= request.getContextPath() %>/view/Index.jsp">
+                <a href="<%= request.getContextPath() %>/jsp/Index.jsp">
                     <div class="side_button">Home</div>
                 </a>
             </div>
@@ -44,7 +43,7 @@ pageEncoding="UTF-8"%>
                     <input class="resetbutton" type="reset" id="reset" value="reset"/>
                     <br>
                 </div>
-                <a class="forgotpwd" href="<%= request.getContextPath() %>/view/RecoverPassword.jsp">Forgot password?</a>
+                <a class="forgotpwd" href="<%= request.getContextPath() %>/jsp/RecoverPassword.jsp">Forgot password?</a>
             </div>
         </form>
 

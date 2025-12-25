@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
-<%@ page import="controller.AdminLoginServlet" %>
 
 <!DOCTYPE html>
 <html>
@@ -19,13 +18,13 @@ pageEncoding="UTF-8"%>
                 <div class="content">CAMPUS CAREERS</div>
             </div>
             <div class="side_buttons">
-                <a href="<%= request.getContextPath() %>/view/Index.jsp">
+                <a href="<%= request.getContextPath() %>/jsp/Index.jsp">
                     <div class="side_button">Home</div>
                 </a>
             </div>
         </div>
         
-        <form action="AdminLoginServlet" method="post" class="form-box">  
+        <form action="AdminLoginController" method="post" class="form-box">  
             <div class="box">
                 <h1 class="heading">ADMIN LOGIN</h1>
                 <hr><br>
@@ -44,7 +43,7 @@ pageEncoding="UTF-8"%>
                     <input class="resetbutton" type="reset" id="reset" value="reset"/>
                     <br>
                 </div>
-                <a class="forgotpwd" href="<%= request.getContextPath() %>/view/RecoverPassword.jsp">Forgot password?</a>
+                <a class="forgotpwd" href="<%= request.getContextPath() %>/jsp/RecoverPassword.jsp">Forgot password?</a>
                     
                 <!-- <label for=gen>function</label>
                 <select id=gen name=offer>
