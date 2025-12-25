@@ -43,7 +43,7 @@
             boolean isLoggedin = (boolean) session.getAttribute("isLoggedin");
             int userid = (int) session.getAttribute("user");
             if(isLoggedin) {
-                //String jobid = request.getParameter("jobid");
+                //String jobid = request.getParameter("jobid"); // offer id
                 database2 obj = new database2();
                 List<Map<String, Object>> List3 = new ArrayList<>();
                 List3 = obj.AppliedOffers(userid);

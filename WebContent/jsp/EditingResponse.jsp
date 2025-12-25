@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<%
-				String jobid = request.getParameter("jobid");
+				String jobid = request.getParameter("jobid");	// offer id
 				String dname = request.getParameter("dname");
 				String Cname = request.getParameter("Cname");
 				String domain = request.getParameter("domain");

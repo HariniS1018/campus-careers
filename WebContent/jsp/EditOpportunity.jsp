@@ -20,7 +20,7 @@
         int userID = (int) session.getAttribute("user");
         if(isLoggedin) {
             
-            String jobid = request.getParameter("job_ID");
+            String jobid = request.getParameter("job_ID");  // offer id
             int job = Integer.parseInt(jobid); 
             database1 obj = new database1();
             Map<String, Object> inboxMsg = null;

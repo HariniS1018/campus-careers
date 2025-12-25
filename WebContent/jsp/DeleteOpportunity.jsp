@@ -15,7 +15,7 @@
 		boolean isLoggedin = (boolean) session.getAttribute("isLoggedin");
 		int userID = (int) session.getAttribute("user");
 		if(isLoggedin) {
-			String job_id = request.getParameter("jobid");
+			String job_id = request.getParameter("jobid");	// offer id
 			int jobid = Integer.parseInt(job_id); 
 			database1 obj = new database1();
 			int count = obj.DeleteDetail(jobid);
