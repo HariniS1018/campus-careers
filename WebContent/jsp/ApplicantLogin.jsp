@@ -24,6 +24,19 @@ pageEncoding="UTF-8"%>
             </div>
         </div>
         
+        <% 
+            String reqErrorMsg = (String) request.getAttribute("errorMessage"); %>
+            if (reqErrorMsg != null) {
+                out.print("<div class='error'>" + reqErrorMsg + "</div>");
+            }
+
+            String sessErrorMsg = (String) session.getAttribute("errorMessage");
+            if (sessErrorMsg != null) {
+                out.print("<div class='error'>" + sessErrorMsg + "</div>");
+                session.removeAttribute("sessErrorMsg");
+            }
+        %>
+        
         <form action="ApplicantLoginServlet" method="post" class="form-box">    
             <div class="box">
                 <h1 class="heading">APPLICANT LOGIN</h1>

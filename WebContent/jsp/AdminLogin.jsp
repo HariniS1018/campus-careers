@@ -23,7 +23,20 @@ pageEncoding="UTF-8"%>
                 </a>
             </div>
         </div>
-        
+
+        <% 
+            String reqErrorMsg = (String) request.getAttribute("errorMessage"); %>
+            if (reqErrorMsg != null) {
+                out.print("<div class='error'>" + reqErrorMsg + "</div>");
+            }
+
+            String sessErrorMsg = (String) session.getAttribute("errorMessage");
+            if (sessErrorMsg != null) {
+                out.print("<div class='error'>" + sessErrorMsg + "</div>");
+                session.removeAttribute("sessErrorMsg");
+            }
+        %>
+
         <form action="AdminLoginController" method="post" class="form-box">  
             <div class="box">
                 <h1 class="heading">ADMIN LOGIN</h1>

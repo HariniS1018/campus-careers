@@ -7,8 +7,12 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import dao.InterviewDAO;
 import util.DBConnection;
+import model.Admin;  
+import model.Interview;
 import java.sql.*;
+import java.util.List;
 
 @WebServlet("/AdminLoginController")
 public class AdminLoginController extends HttpServlet {
@@ -23,22 +27,36 @@ public class AdminLoginController extends HttpServlet {
         HttpSession session = request.getSession();
 
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement ps = con.prepareStatement("SELECT id, password FROM Adminsecurity WHERE id=?")) {
-
+            PreparedStatement ps = con.prepareStatement("SELECT id, password FROM admin_security WHERE id=?")) {
             ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
-
-            if (rs.next() && pwd.equals(rs.getString("password"))) {
-                session.setAttribute("isLoggedin", true);
-                session.setAttribute("user", userId);
-
-                RequestDispatcher dispatch = request.getRequestDispatcher("AddOpportunity.jsp");
-                dispatch.forward(request, response);
+            RequestDispatcher dispatch;
+            
+            if (rs.next()) {
+                Admin admin = new Admin(rs.getInt("id"), rs.getString("password"));
+            
+                if (pwd.equals(admin.getPassword())) {
+                    session.setAttribute("isLoggedin", true);
+                    session.setAttribute("role", "admin");
+                    session.setAttribute("user", admin.getId());
+                    
+                    InterviewDAO interviewDAO = new InterviewDAO();
+                    List<Interview> activeInterviews = interviewDAO.getActiveInterviews();
+                    request.setAttribute("activeInterviews", activeInterviews);
+                    dispatch = request.getRequestDispatcher("ViewOpportunityAdmin.jsp");
+                }
+                else {
+                    session.setAttribute("isLoggedin", false);
+                    request.setAttribute("errorMessage", "Invalid username or password");
+                    dispatch = request.getRequestDispatcher("AdminLogin.jsp");
+                }
             } else {
                 session.setAttribute("isLoggedin", false);
-                PrintWriter out = response.getWriter();
-                out.print("<h1>Invalid username or password</h1>");
+                request.setAttribute("errorMessage", "User not found");
+                dispatch = request.getRequestDispatcher("AdminLogin.jsp");
             }
+            
+            dispatch.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
