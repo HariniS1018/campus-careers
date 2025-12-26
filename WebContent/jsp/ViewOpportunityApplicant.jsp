@@ -1,8 +1,3 @@
-<%@page import="applicant.database2"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.sql.Timestamp"%>
-<%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
@@ -41,28 +36,29 @@ if (isLoggedin != null && isLoggedin){
 
             <%
                 List<Interview> activeInterviews = (List<Interview>) request.getAttribute("activeInterviews");
-                    if (activeInterviews != null) {
-                        for (Interview interview : activeInterviews) {
+                if (activeInterviews != null) {
+                    for (Interview interview : activeInterviews) {
             %>
             
-                            <div class='card'>
-                                <div class='card-title'><%= interview.getRole() %></div>
-                                <div class='card-text'>Eligible Branches: <b><%= String.join(", ", interview.getEligibleCourses()) %></b></div>
-                                <div class='card-text'>Company: <b><%= interview.getCompanyName() %></b></div>
-                                <div class='card-text'>Stipend: <b><%= interview.getStipend() %> INR</b> &MediumSpace; &MediumSpace;   CTC: <b><%= interview.getCtc() %> LPA INR</b> </div>
-                                <div class='card-text'>Internship Duration: <b><%= interview.getDuration() %></b> months</div>
-                                <div class='card-text'>Interview: <b><%= interview.getInterviewTime() %></b> Hrs on <b><%= interview.getInterviewDate() %></b> in <b><%= interview.getInterviewVenue() %></b></div>
-                                <div class='card-buttons'>
-                                    <a href='<%= request.getContextPath() %>/jsp/ApplyOpportunity.jsp?offer_id=<%= interview.getOfferId() %>'>
-                                        <button>Apply</button>
-                                    </a>
-                                </div>
+                        <div class='card'>
+                            <div class='card-title'><%= interview.getRole() %></div>
+                            <div class='card-text'>Eligible Branches: <b><%= String.join(", ", interview.getEligibleCourses()) %></b></div>
+                            <div class='card-text'>Company: <b><%= interview.getCompanyName() %></b></div>
+                            <div class='card-text'>Stipend: <b><%= interview.getStipend() %> INR</b> &MediumSpace; &MediumSpace;   CTC: <b><%= interview.getCtc() %> LPA INR</b> </div>
+                            <div class='card-text'>Internship Duration: <b><%= interview.getDuration() %></b> months</div>
+                            <div class='card-text'>Interview: <b><%= interview.getInterviewTime() %></b> Hrs on <b><%= interview.getInterviewDate() %></b> in <b><%= interview.getInterviewVenue() %></b></div>
+                            <div class='card-buttons'>
+                                <form action="ApplyOpportunity" method="post">
+                                    <input type="hidden" name="offer_id" value="<%= interview.getOfferId() %>"/>
+                                    <input type="submit" value="Apply"/>
+                                </form>
                             </div>
-
-
-                <%      } 
-                    }
-                %>
+                        </div>
+        
+            <%      } 
+                }
+            %>
+        
         </body>
     </html>
 

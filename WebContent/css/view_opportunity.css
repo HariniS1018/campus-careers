@@ -27,7 +27,7 @@
     gap:50px;
     justify-content: evenly;
 }
-button{
+input[type="submit"], button{
     background-color: indigo;
     color: white;
     opacity: 0.6;
@@ -37,7 +37,7 @@ button{
     border-radius: 10px;
     border: thin solid indigo;
 }
-button:hover{
+input[type="submit"]:hover, button:hover{
     opacity: 1;
     cursor: pointer;
 }
