@@ -34,7 +34,19 @@ if (isLoggedin != null && isLoggedin){
                 </div>
             </div>
 
-            <%
+            <% 
+                String sessMessage = (String) session.getAttribute("message");
+                if (sessMessage != null) {
+                    out.print("<div class='success'>" + sessMessage + "</div>");
+                    session.removeAttribute("message");
+                }
+
+                String sessErrorMsg = (String) session.getAttribute("errorMessage");
+                if (sessErrorMsg != null) {
+                    out.print("<div class='error'>" + sessErrorMsg + "</div>");
+                    session.removeAttribute("errorMessage");
+                }
+                
                 List<Interview> activeInterviews = (List<Interview>) request.getAttribute("activeInterviews");
                 if (activeInterviews != null) {
                     for (Interview interview : activeInterviews) {
