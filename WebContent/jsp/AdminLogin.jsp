@@ -63,13 +63,7 @@ pageEncoding="UTF-8"%>
                     <br>
                 </div>
                 <a class="forgotpwd" href="<%= request.getContextPath() %>/jsp/RecoverPassword.jsp">Forgot password?</a>
-                    
-                <!-- <label for=gen>function</label>
-                <select id=gen name=offer>
-                <option value="insert">insert</option>
-                <option value="delete">delete</option>
-                </select>
-                <br><br> -->
+                 
             </div>
         </form>
 
