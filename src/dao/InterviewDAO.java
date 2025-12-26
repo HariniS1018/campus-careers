@@ -94,4 +94,19 @@ public class InterviewDAO {
             return false;
         }
     }
+
+    public boolean deactivateInterview(int offerId) {
+        String updateSQL = "UPDATE Interview SET isActive = 0 WHERE offerId = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(updateSQL)) {
+
+            ps.setInt(1, offerId);
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
