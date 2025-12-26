@@ -46,10 +46,12 @@ if (isLoggedin != null && isLoggedin){
             %>
             
                             <div class='card'>
-                                <div class='card-title'><%= interview.getDomain() %> - <%= interview.getJobType() %></div>
+                                <div class='card-title'><%= interview.getRole() %></div>
+                                <div class='card-text'>Eligible Branches: <b><%= String.join(", ", interview.getEligibleCourses()) %></b></div>
                                 <div class='card-text'>Company: <b><%= interview.getCompanyName() %></b></div>
-                                <div class='card-text'>Start Date: <b><%= interview.getStartDate() %></b> for <b><%= interview.getDuration() %></b> months</div>
-                                <div class='card-text'>Interview: <b><%= interview.getInterviewTime() %></b> Hrs on <b><%= interview.getInterviewDate() %></b> in <b><%= interview.getVenue() %></b></div>
+                                <div class='card-text'>Stipend: <b><%= interview.getStipend() %> INR</b> &MediumSpace; &MediumSpace;   CTC: <b><%= interview.getCtc() %> LPA INR</b> </div>
+                                <div class='card-text'>Internship Duration: <b><%= interview.getDuration() %></b> months</div>
+                                <div class='card-text'>Interview: <b><%= interview.getInterviewTime() %></b> Hrs on <b><%= interview.getInterviewDate() %></b> in <b><%= interview.getInterviewVenue() %></b></div>
                                 <div class='card-buttons'>
                                     <a href='<%= request.getContextPath() %>/jsp/ApplyOpportunity.jsp?offer_id=<%= interview.getOfferId() %>'>
                                         <button>Apply</button>
