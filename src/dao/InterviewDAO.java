@@ -6,10 +6,6 @@ import java.util.List;
 import model.Interview;
 import util.DBConnection;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-
 public class InterviewDAO {
 
     public List<Interview> getActiveInterviews() {
@@ -64,7 +60,7 @@ public class InterviewDAO {
                 try (ResultSet rs = ps.getGeneratedKeys()) {
                     if (rs.next()) {
                         int generatedOfferId = rs.getInt(1);
-                        interview.setOfferId(generatedOfferId); // update object with DB PK
+                        interview.setOfferId(generatedOfferId);
                     }
                 }
             }        
@@ -89,7 +85,7 @@ public class InterviewDAO {
             int[] rowsAffected = ps.executeBatch();
             for (int count : rowsAffected) {
                 if (count == 0) {
-                    return false; // at least one insert failed
+                    return false;
                 }
             }
             return true;
