@@ -40,6 +40,37 @@ public class InterviewDAO {
         return interviews;
     }
 
+    public Interview getInterview(int offer_id) {
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(
+                 "SELECT companyName, role, stipend, ctc, duration, interviewVenue, interviewDate, interviewTime, offerId, adminId, isActive FROM Interview WHERE isActive=1 and offer_id= ?"
+             )) {
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Interview interview = new Interview(
+                    rs.getString("companyName"),
+                    rs.getString("role"),
+                    rs.getInt("stipend"),
+                    rs.getDouble("ctc"),
+                    rs.getInt("duration"),
+                    rs.getString("interviewVenue"),
+                    rs.getDate("interviewDate").toLocalDate(),
+                    rs.getTime("interviewTime").toLocalTime(),
+                    rs.getInt("offerId"),
+                    rs.getInt("adminId"),
+                    rs.getBoolean("isActive")
+                );
+                
+                return interview;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
     public boolean addInterview(Interview interview) {
         String insertSQL = "INSERT INTO Interview (companyName, role, stipend, ctc, duration, interviewVenue, interviewDate, interviewTime, adminId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = DBConnection.getConnection();

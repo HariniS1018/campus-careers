@@ -21,7 +21,7 @@ public class AdminLoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int userId = Integer.parseInt(request.getParameter("uid")); // match JSP input name
+        int userId = Integer.parseInt(request.getParameter("uid"));
         String pwd = request.getParameter("pwd");
 
         HttpSession session = request.getSession();

@@ -61,7 +61,7 @@ if (isLoggedin != null && isLoggedin){
                                 <div class='card-text'>Internship Duration: <b><%= interview.getDuration() %></b> months</div>
                                 <div class='card-text'>Interview: <b><%= interview.getInterviewTime() %></b> Hrs on <b><%= interview.getInterviewDate() %></b> in <b><%= interview.getInterviewVenue() %></b></div>
                                 <div class='card-buttons'>
-                                    <a href='<%= request.getContextPath() %>/jsp/EditOpportunity.jsp?offer_id=<%= interview.getOfferId() %>'>
+                                    <a href='<%= request.getContextPath() %>/jsp/FetchOpportunity?offer_id=<%= interview.getOfferId() %>'>
                                         <button>Edit</button>
                                     </a>
                                     <a href='<%= request.getContextPath() %>/DeleteOpportunity?offer_id=<%= interview.getOfferId() %>'>
