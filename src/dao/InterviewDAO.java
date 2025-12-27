@@ -45,7 +45,7 @@ public class InterviewDAO {
              PreparedStatement ps = con.prepareStatement(
                  "SELECT companyName, role, stipend, ctc, duration, interviewVenue, interviewDate, interviewTime, offerId, adminId, isActive FROM Interview WHERE isActive=1 and offer_id= ?"
              )) {
-
+            ps.setInt(1, offer_id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Interview interview = new Interview(
@@ -68,7 +68,6 @@ public class InterviewDAO {
             e.printStackTrace();
         }
         return null;
-
     }
 
     public boolean addInterview(Interview interview) {
@@ -120,6 +119,43 @@ public class InterviewDAO {
                 }
             }
             return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean editInterview(Interview interview) {
+        String insertSQL = "UPDATE Interview (companyName, role, stipend, ctc, duration, interviewVenue, interviewDate, interviewTime, adminId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection con = DBConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(insertSQL, Statement.RETURN_GENERATED_KEYS);) {
+
+            ps.setString(1, interview.getCompanyName());
+            ps.setString(2, interview.getRole());
+            ps.setInt(3, interview.getStipend());
+            ps.setDouble(4, interview.getCtc());
+            ps.setInt(5, interview.getDuration());
+            ps.setString(6, interview.getInterviewVenue());
+            ps.setDate(7, Date.valueOf(interview.getInterviewDate()));
+            ps.setTime(8, Time.valueOf(interview.getInterviewTime()));
+            ps.setInt(9, interview.getAdminId());
+            
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteOldEligibleCoursesforInterview(int offerId) {
+        String insertSQL = "DELETE FROM OfferCourse WHERE offerId = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(insertSQL)) {
+                ps.setInt(1, offerId);
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;

@@ -1,55 +1,35 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
-<%@page import="java.io.PrintWriter"%>
-<%@page import="admin.database1"%>
+<%@page import="model.Interview"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>edit-opportunity-admin</title>
-        <link rel="stylesheet" type="text/css" href="./css/header.css">
-        <link rel="stylesheet" type="text/css" href="./css/add_opportunity.css">
-    </head>
-    <body>
 
-        <%
-        boolean isLoggedin = (boolean) session.getAttribute("isLoggedin");
-        int userID = (int) session.getAttribute("user");
-        if(isLoggedin) {
-            
-            String jobid = request.getParameter("job_ID");  // offer id
-            int job = Integer.parseInt(jobid); 
-            database1 obj = new database1();
-            Map<String, Object> inboxMsg = null;
-            inboxMsg = obj.ViewEditingDetail(job);
-            String dname = null,Cname = null,domain = null,job_type = null,StartDate = null,duration = null,venue = null,In_date = null,In_time  = null;
-            dname = (String) inboxMsg.get("dname");
-            Cname = (String) inboxMsg.get("Cname");
-            domain = (String) inboxMsg.get("domain");
-            job_type = (String) inboxMsg.get("job_type");
-            StartDate = (String) inboxMsg.get("StartDate");
-            duration = (String) inboxMsg.get("duration");
-            venue = (String) inboxMsg.get("venue");
-            In_date = (String) inboxMsg.get("In_date");
-            In_time = (String) inboxMsg.get("In_time");
-            //jobid = (String) inboxMsg.get("jobID");   
-        %>
+<%
+Boolean isLoggedin = (Boolean) session.getAttribute("isLoggedin");
+String role = (String) session.getAttribute("role");
+if (isLoggedin != null && isLoggedin){
+    if ("admin".equals(role)) {
+    %>
+    
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>edit-opportunity-admin</title>
+            <link rel="stylesheet" type="text/css" href="./css/header.css">
+            <link rel="stylesheet" type="text/css" href="./css/add_opportunity.css">
+        </head>
 
-        <form action="EditingOffer" method="post">
-            
+        <body>
+
             <div class="blocks">
                 <div class="logo_inner">
                     <img src="images/logo.jpg"> 
                     <div class="content">CAMPUS CAREERS</div>
                 </div>
                 <div class="side_buttons">
-                    <a href="<%= request.getContextPath() %>/views/AddOpportunity.jsp">
+                    <a href="<%= request.getContextPath() %>/jsp/AddOpportunity.jsp">
                         <div class="side_button">Add Offers</div>
                     </a>
-                    <a href="<%= request.getContextPath() %>/views/ViewOpportunityAdmin.jsp">
+                    <a href="<%= request.getContextPath() %>/jsp/ViewOpportunityAdmin.jsp">
                         <div class="side_button">View Offers</div>
                     </a>
                     <a href="<%= request.getContextPath() %>/LogOutController">
@@ -58,72 +38,106 @@
                 </div>
             </div>
 
-            <div class="box">
-                <h1 class="heading">EDIT THE DETAIL</h1>
-                <hr>
-                <div class="form-group">
-                    <label for="dname">Departments Allowed</label>
-                    <input type="text" id="dname" name="<%=dname %>" required/>
-                </div>
 
-                <div class="form-group">
-                    <label for="Cname">Company Name</label>
-                    <input type="text" id="Cname" name="Cname" value="<%=Cname %>"required/>
-                </div>
+            <%
+            Interview interview = (Interview) request.getAttribute("interview");
+                if (interview != null) {
+                
+            %>
 
-                <div class="form-group">
-                    <label for="domain">Domain</label>
-                    <input type="text" id="domain" name="domain" value="<%=domain %>"required/>
-                </div>
+                <form action="EditOpportunity" method="post">
+                    <div class="box">
+                        
+                        <h1 class="heading">EDIT FORM</h1>
+                        <hr>
+                        
+                        <div class="dropdown-group">
+                            <label for="eligible_courses">Eligible Courses <small>Select multiple courses by holding Ctrl (Windows) or Command (Mac).</small></label>
+                            <select class="select-box" id="eligible_courses" name="eligible_courses" multiple size="6" required></select>
+                        </div>
 
-                <div class="form-group">
-                    <label>Job Type</label>
-                    <div class="radio-inputs">
-                        <label>
-                            <input type="checkbox" name="JT" required />
-                            Full-Time
-                        </label>
-                        <label>
-                            <input type="checkbox" name="JT" required />
-                            Internship
-                        </label>
-                        </select value="<%=job_type %>">
-                    </div>
-                </div>
+                        <%
+                            String selectedCoursesJson = new com.google.gson.Gson().toJson(interview.getEligibleCourses());
+                        %>
 
-                <div class="form-group">
-                    <label for="StartDate">Job Start date</label>
-                    <input type="date" id="StartDate" name="StartDate" value="<%=StartDate %>" required/>
-                </div>
+                        <script>
+                            const departments = {
+                                "CS": "Computer Science Engineering",
+                                "IT": "Information Technology",
+                                "Mech": "Mechanical Engineering",
+                                "ECE": "Electronics & Communication",
+                                "EEE": "Electrical & Electronics",
+                                "Civil": "Civil Engineering",
+                                "BioTech": "Biotechnology",
+                            };
+                        
+                            const selectBox = document.getElementById("eligible_courses");
+                        
+                            for (const [value, label] of Object.entries(departments)) {
+                                const option = document.createElement("option");
+                                option.value = value;
+                                option.textContent = label;
+                                if (selectedCourses.includes(value)) {
+                                    option.selected = true;
+                                }
+                                // option.classList.add("option-box");
+                                selectBox.appendChild(option);
+                            }
+                        </script>
 
-                <div class="form-group">
-                    <label for="duration">Job Duration</label>
-                    <input type="text" id="duration" name="duration" value="<%=duration %>" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="venue">Interview Venue</label>
-                    <input type="text" id="venue" name="venue" value="<%=venue %>" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="In_date">Interview Date</label>
-                    <input type="date" id="In_date" name="In_date" value="<%=In_date %>" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="In_time">Interview Time</label>
-                    <input type="time" id="In_time" name="In_time" value="<%=In_time %>" required/>
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" id="but" value="submit"/>
-                    <input type="reset" id="but" value="reset"/>
-                </div>
-            </div>
-        </form>
+                        <div class="form-group">
+                            <label for="company_name">Company Name</label>
+                            <input type="text" id="company_name" name="company_name" value="<%= interview.getCompanyName() %>" placeholder="ABC Company" required/>
+                        </div>
         
-    <%}
-        %>
-    </body>
-</html>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="text" id="role" name="role" value="<%= interview.getRole() %>" placeholder="Software Engineering" required/>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="stipend">Stipend</label>
+                            <input type="number" id="stipend" name="stipend" value="<%= interview.getStipend() %>" placeholder="in thousands (INR)" required/>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="CTC">CTC</label>
+                            <input type="number" id="CTC" name="CTC" value="<%= interview.getCtc() %>" placeholder="in LPA (INR)" required/>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="duration">Internship Duration</label>
+                            <input type="number" id="duration" name="duration" value="<%= interview.getDuration() %>" placeholder="in months" required/>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="interview_venue">Interview Venue</label>
+                            <input type="text" id="interview_venue" name="interview_venue" value="<%= interview.getInterviewVenue() %>" placeholder="Company Premise" required/>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="interview_date">Interview Date</label>
+                            <input type="date" id="interview_date" name="interview_date" value="<%= interview.getInterviewDate().toString() %>" required/>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="interview_time">Interview Time (24 Hrs)</label>
+                            <input type="time" id="interview_time" name="interview_time" value="<%= interview.getInterviewTime().toString() %>" required/>
+                        </div>
+
+                        <input type="hidden" name="offer_id" value="<%= interview.getOfferId() %>"/>
+        
+                        <div class="form-group">
+                            <input type="submit" id="but" value="submit"/>
+                            <input type="reset" id="but" value="reset"/>
+                        </div>      
+                    </div>
+                </form>
+                
+        <%}
+            %>
+        </body>
+    </html>
+<% }
+    }
+    %>

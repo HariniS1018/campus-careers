@@ -27,7 +27,7 @@ public class FetchOpportunity extends HttpServlet {
 			Interview interview = interviewDAO.getInterview(offerId);
 			if (interview != null) {
 				request.setAttribute("interview", interview);
-				response.sendRedirect(request.getContextPath() + "/jsp/EditOpportunity.jsp");
+				request.getRequestDispatcher("/jsp/EditOpportunity.jsp").forward(request, response);
 			}
 			else {
 				request.getSession().setAttribute("errorMessage", "Failed to fetch the details of offer.");
