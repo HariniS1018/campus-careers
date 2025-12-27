@@ -25,7 +25,7 @@ public class ApplyOpportunity extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/ApplicantLogin.jsp");
                     return;
                 }
-                int applicantId = (int) userObj;
+                int applicantId = Integer.parseInt(userObj.toString());
                 
                 ApplyInterviewDAO applyInterviewDAO = new ApplyInterviewDAO();
 				if (applyInterviewDAO.applyInterview(offerId, applicantId)) {

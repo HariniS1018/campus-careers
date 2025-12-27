@@ -31,45 +31,26 @@
             </div>
         </div>
 
-        <div class='card'>
-            <div class='card-title'>Software Engineering - Full Time</div>
-            <div class='card-text'>Company: <b>ABC</b> </div>
-            <div class='card-text'>Start Date: <b>01-01-2026</b> for <b>6</b> months</div>
-            <div class='card-text'>Interview: <b>09:00</b> Hrs on <b>25-12-2025</b> in <b>CUIC</b></div>
-        </div>
-        
-
         <%
-            boolean isLoggedin = (boolean) session.getAttribute("isLoggedin");
-            int userid = (int) session.getAttribute("user");
-            if(isLoggedin) {
-                //String jobid = request.getParameter("jobid"); // offer id
-                database2 obj = new database2();
-                List<Map<String, Object>> List3 = new ArrayList<>();
-                List3 = obj.AppliedOffers(userid);
-                
-                for(int i=0;i<List3.size();i++){
-                    Map<String,Object> inboxMsg = List3.get(i);
-                    String Cname = (String) inboxMsg.get("Cname");
-                    String domain = (String) inboxMsg.get("domain");
-                    String job_type = (String) inboxMsg.get("job_type");
-                    String StartDate = (String) inboxMsg.get("StartDate");
-                    String duration = (String) inboxMsg.get("duration");
-                    String venue = (String) inboxMsg.get("venue");
-                    String In_date = (String) inboxMsg.get("In_date");
-                    String In_time = (String) inboxMsg.get("In_time");
-                    String jobid = (String) inboxMsg.get("jobID");
+        List<Interview> appliedInterviews = (List<Interview>) request.getAttribute("appliedInterviews");
+            if (appliedInterviews != null) {
+                for (Interview interview : appliedInterviews) {
+        
         %>
     
-        <div class='card'>
-            <div class='card-title'><%=domain %> - <%=job_type %></div>
-            <div class='card-text'>Company: <b><%=Cname %></b> </div>
-            <div class='card-text'>Start Date: <b><%=StartDate %></b> for <b><%=duration %></b> months</div>
-            <div class='card-text'>Interview: <b><%=In_time %></b> Hrs on <b><%=In_date %></b> in <b><%=venue %></b></div>
-        </div>
-        
-        <%}
-            }%>
+                    <div class='card'>
+                        <div class='card-title'><%= interview.getRole() %></div>
+                        <div class='card-text'>Eligible Branches: <b><%= String.join(", ", interview.getEligibleCourses()) %></b></div>
+                        <div class='card-text'>Company: <b><%= interview.getCompanyName() %></b></div>
+                        <div class='card-text'>Stipend: <b><%= interview.getStipend() %> INR</b> &MediumSpace; &MediumSpace;   CTC: <b><%= interview.getCtc() %> LPA INR</b> </div>
+                        <div class='card-text'>Internship Duration: <b><%= interview.getDuration() %></b> months</div>
+                        <div class='card-text'>Interview: <b><%= interview.getInterviewTime() %></b> Hrs on <b><%= interview.getInterviewDate() %></b> in <b><%= interview.getInterviewVenue() %></b></div>
+                    </div>
+
+        <%  
+                } 
+            }
+        %>
         
     </body>
 </html>

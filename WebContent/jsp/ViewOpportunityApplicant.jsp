@@ -25,7 +25,7 @@ if (isLoggedin != null && isLoggedin){
                     <div class="content">CAMPUS CAREERS</div>
                 </div>
                 <div class="side_buttons">
-                    <a href="<%= request.getContextPath() %>/views/ViewAppliedOpportunity.jsp">
+                    <a href="<%= request.getContextPath() %>/FetchAppliedOpportunity">
                         <div class="side_button">View Applied Offers</div>
                     </a>
                     <a href="<%= request.getContextPath() %>/LogOutController">
