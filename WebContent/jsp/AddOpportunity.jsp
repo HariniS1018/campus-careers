@@ -1,124 +1,132 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%
+Boolean isLoggedin = (Boolean) session.getAttribute("isLoggedin");
+String role = (String) session.getAttribute("role");
+if (isLoggedin != null && isLoggedin){
+    if ("admin".equals(role)) {
+    %>
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>add-new-jobs-(admin)</title>
+            <link rel="stylesheet" type="text/css" href="./css/header.css">
+            <link rel="stylesheet" type="text/css" href="./css/add_opportunity.css">
+        </head>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>add-new-jobs-(admin)</title>
-        <link rel="stylesheet" type="text/css" href="./css/header.css">
-        <link rel="stylesheet" type="text/css" href="./css/add_opportunity.css">
-    </head>
-
-    <body>
-        <div class="blocks">
-            <div class="logo_inner">
-                <img src="images/logo.jpg"> 
-                <div class="content">CAMPUS CAREERS</div>
+        <body>
+            <div class="blocks">
+                <div class="logo_inner">
+                    <img src="images/logo.jpg"> 
+                    <div class="content">CAMPUS CAREERS</div>
+                </div>
+                <div class="side_buttons">
+                    <a href="<%= request.getContextPath() %>/views/ViewOpportunityAdmin.jsp">
+                        <div class="side_button">View Offers</div>
+                    </a>
+                    <a href="<%= request.getContextPath() %>/LogOutController">
+                        <div class="side_button">log out</div>
+                    </a>
+                    
+                </div>
             </div>
-            <div class="side_buttons">
-                <a href="<%= request.getContextPath() %>/views/ViewOpportunityAdmin.jsp">
-                    <div class="side_button">View Offers</div>
-                </a>
-                <a href="<%= request.getContextPath() %>/LogOutController">
-                    <div class="side_button">log out</div>
-                </a>
-                
-            </div>
-        </div>
 
-        <% 
-            String sessMessage = (String) session.getAttribute("message");
-            if (sessMessage != null) {
-                out.print("<div class='success'>" + sessMessage + "</div>");
-                session.removeAttribute("message");
-            }
+            <% 
+                String sessMessage = (String) session.getAttribute("message");
+                if (sessMessage != null) {
+                    out.print("<div class='success'>" + sessMessage + "</div>");
+                    session.removeAttribute("message");
+                }
 
-            String sessErrorMsg = (String) session.getAttribute("errorMessage");
-            if (sessErrorMsg != null) {
-                out.print("<div class='error'>" + sessErrorMsg + "</div>");
-                session.removeAttribute("errorMessage");
-            }
-        %>
+                String sessErrorMsg = (String) session.getAttribute("errorMessage");
+                if (sessErrorMsg != null) {
+                    out.print("<div class='error'>" + sessErrorMsg + "</div>");
+                    session.removeAttribute("errorMessage");
+                }
+            %>
 
-        <form action="AddOpportunity" method="post">
-            <div class="box">
-                
-                <h1 class="heading">FILL IN THE DETAILS</h1>
-                <hr>
-                
-                <div class="dropdown-group">
-                    <label for="eligible_courses">Eligible Courses <small>Select multiple courses by holding Ctrl (Windows) or Command (Mac).</small></label>
-                    <select class="select-box" id="eligible_courses" name="eligible_courses" multiple size="6" required></select>
+            <form action="AddOpportunity" method="post">
+                <div class="box">
+                    
+                    <h1 class="heading">FILL IN THE DETAILS</h1>
+                    <hr>
+                    
+                    <div class="dropdown-group">
+                        <label for="eligible_courses">Eligible Courses <small>Select multiple courses by holding Ctrl (Windows) or Command (Mac).</small></label>
+                        <select class="select-box" id="eligible_courses" name="eligible_courses" multiple size="6" required></select>
+                    </div>
+                    
+                    <script>
+                        const departments = {
+                            "CS": "Computer Science Engineering",
+                            "IT": "Information Technology",
+                            "Mech": "Mechanical Engineering",
+                            "ECE": "Electronics & Communication",
+                            "EEE": "Electrical & Electronics",
+                            "Civil": "Civil Engineering",
+                            "BioTech": "Biotechnology",
+                        };
+                    
+                        const selectBox = document.getElementById("eligible_courses");
+                    
+                        for (const [value, label] of Object.entries(departments)) {
+                            const option = document.createElement("option");
+                            option.value = value;
+                            option.textContent = label;
+                            option.classList.add("option-box");
+                            selectBox.appendChild(option);
+                        }
+                    </script>
+
+                    <div class="form-group">
+                        <label for="company_name">Company Name</label>
+                        <input type="text" id="company_name" name="company_name" placeholder="ABC Company" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <input type="text" id="role" name="role" placeholder="Software Engineering" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stipend">Stipend</label>
+                        <input type="number" id="stipend" name="stipend" placeholder="in thousands (INR)" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="CTC">CTC</label>
+                        <input type="number" id="CTC" name="CTC" placeholder="in LPA (INR)" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Internship Duration</label>
+                        <input type="number" id="duration" name="duration" placeholder="in months" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interview_venue">Interview Venue</label>
+                        <input type="text" id="interview_venue" name="interview_venue" placeholder="Company Premise" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interview_date">Interview Date</label>
+                        <input type="date" id="interview_date" name="interview_date" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interview_time">Interview Time (24 Hrs)</label>
+                        <input type="time" id="interview_time" name="interview_time" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" id="but" value="submit"/>
+                        <input type="reset" id="but" value="reset"/>
+                    </div>      
                 </div>
-                
-                <script>
-                    const departments = {
-                        "CS": "Computer Science Engineering",
-                        "IT": "Information Technology",
-                        "Mech": "Mechanical Engineering",
-                        "ECE": "Electronics & Communication",
-                        "EEE": "Electrical & Electronics",
-                        "Civil": "Civil Engineering",
-                        "BioTech": "Biotechnology",
-                    };
-                
-                    const selectBox = document.getElementById("eligible_courses");
-                
-                    for (const [value, label] of Object.entries(departments)) {
-                        const option = document.createElement("option");
-                        option.value = value;
-                        option.textContent = label;
-                        option.classList.add("option-box");
-                        selectBox.appendChild(option);
-                    }
-                </script>
-
-                <div class="form-group">
-                    <label for="company_name">Company Name</label>
-                    <input type="text" id="company_name" name="company_name" placeholder="ABC Company" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="role">Role</label>
-                    <input type="text" id="role" name="role" placeholder="Software Engineering" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="stipend">Stipend</label>
-                    <input type="number" id="stipend" name="stipend" placeholder="in thousands (INR)" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="CTC">CTC</label>
-                    <input type="number" id="CTC" name="CTC" placeholder="in LPA (INR)" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="duration">Internship Duration</label>
-                    <input type="number" id="duration" name="duration" placeholder="in months" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="interview_venue">Interview Venue</label>
-                    <input type="text" id="interview_venue" name="interview_venue" placeholder="Company Premise" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="interview_date">Interview Date</label>
-                    <input type="date" id="interview_date" name="interview_date" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="interview_time">Interview Time (24 Hrs)</label>
-                    <input type="time" id="interview_time" name="interview_time" required/>
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" id="but" value="submit"/>
-                    <input type="reset" id="but" value="reset"/>
-                </div>      
-            </div>
-        </form>
-    </body>
-</html>
+            </form>
+        </body>
+    </html>
+    <% }
+}
+%>
