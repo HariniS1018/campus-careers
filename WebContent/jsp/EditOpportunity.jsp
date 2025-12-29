@@ -45,7 +45,7 @@ if (isLoggedin != null && isLoggedin){
                 
             %>
 
-                <form action="EditOpportunity" method="post">
+                <form action="EditOpportunity" method="post" class="form-box">
                     <div class="box">
                         
                         <h1 class="heading">EDIT FORM</h1>
@@ -57,7 +57,7 @@ if (isLoggedin != null && isLoggedin){
                         </div>
 
                         <%
-                            String selectedCoursesJson = new com.google.gson.Gson().toJson(interview.getEligibleCourses());
+                            String selectedCourses = new com.google.gson.Gson().toJson(interview.getEligibleCourses());
                         %>
 
                         <script>

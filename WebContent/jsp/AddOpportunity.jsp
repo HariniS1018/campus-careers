@@ -46,7 +46,7 @@ if (isLoggedin != null && isLoggedin){
                 }
             %>
 
-            <form action="AddOpportunity" method="post">
+            <form action="AddOpportunity" method="post" class="form-box">
                 <div class="box">
                     
                     <h1 class="heading">FILL IN THE DETAILS</h1>
