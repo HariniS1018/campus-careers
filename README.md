@@ -4,11 +4,6 @@ CampusCareers is a web-based application designed to streamline the process of m
 
 ---
 
-## 📂 Project Structure 
-(can be viewed in doc.txt file)
-
----
-
 ## 📂 Outputs
 output screenshots are found in outputs folder
 
@@ -30,20 +25,11 @@ output screenshots are found in outputs folder
 - **Password Recovery**
   - Reset password via recovery flow
 
-- **Interview Management**
-  - DAO layer for handling interview-related data
-
-- **Database Integration**
-  - Centralized `DBConnection.java` utility for JDBC connections
-
 ---
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Java Servlets, JSP  
-- **Frontend:** JSP, HTML, CSS  
-- **Database:** MySQL (or any JDBC-compatible DB)  
-- **Build Tool:** Apache Tomcat (for deployment)  
+- **Frontend:** HTML, CSS  
 - **Version Control:** Git  
 
 ---
@@ -52,4 +38,4 @@ output screenshots are found in outputs folder
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/CampusCareers.git
+   git clone https://github.com/HariniS1018/campus-careers.git
