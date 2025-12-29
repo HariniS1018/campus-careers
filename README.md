@@ -52,4 +52,4 @@ output screenshots are found in outputs folder
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/CampusCareers.git
+   git clone https://github.com/HariniS1018/campus-careers.git
