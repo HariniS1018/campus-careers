@@ -1,47 +1,50 @@
-CampusCareers/
- ├── src/
- │    ├── controller/
- │    │     └── AddOpportunity.java
- │    │     └── AdminLoginController.java
- │    │     └── ApplicantLoginController.java
- │    │     └── ApplyOpportunity.java           -> To Apply for an currently active offer by students.
- │    │     └── DeleteOpportunity.java          -> To Delete an opportunity that is entered.
- │    │     └── EditOpportunity.java            -> Once the current entries are changed, to update in db.
- │    │     └── FetchAppliedOpportunity.java
- │    │     └── FetchOpportunity.java           -> To fetch details of an offer in order to edit.
- │    │     └── LogOutController.java           -> To invalidate current session on logging out.
- │    │     └── RecoverPasswordController.java
- │    ├── dao/
- │    │     └── ApplyInterviewDAO.java
- │    │     └── InterviewDAO.java
- │    │     └── RecoverPassword.java
- │    └── model/
- │    │     └── Admin.java
- │    │     └── Applicant.java
- │    │     └── Interview.java
- │    │     └── OfferCourse.java
- │    ├── util/
- │    │     └── DBConnection.java
- │          
- ├── WebContent/
- │    ├── jsp/
- │    │     └── AddOpportunity.jsp      -> To add an offer by admin.
- │    │     └── AdminLogin.jsp          -> For admin to login.
- │    │     └── ApplicantLogin.jsp      -> For applicant to login.
- │    │     └── EditOpportunity.jsp     -> To Edit some detail of currently active offer.
- │    │     └── Index.jsp               -> Dashboard, Initial page.        
- │    │     └── RecoverPassword.jsp     -> To reset password when a user clicked on forgot password.
- │    │     └── ViewAppliedOpportunity.jsp      -> To list and view the offers that a student has applied for.
- │    │     └── ViewOpportunityAdmin.jsp        -> To list and view the offers that are added by all admins (for admin view purpose only).
- │    │     └── ViewOpportunityApplicant.jsp    -> To list and view the offers that are added by all admins (for applicant view purpose only).
- │    ├── css/
- │    │     └── add_opportunity.css
- │    │     └── footer.css
- │    │     └── header.css
- │    │     └── index.css
- │    │     └── login.css
- │    │     └── recover_password.css
- │    │     └── view_opportunity.css
- │    └── images/
- └──── .gitignore
- └──── README.md
+# CampusCareers 🎓💼
+
+CampusCareers is a web-based application designed to streamline the process of managing campus recruitment opportunities. It provides separate interfaces for **admins** (to create and manage opportunities) and **applicants** (to view and apply for opportunities). The system also supports password recovery, interview management, and session handling.
+
+---
+
+## 📂 Project Structure
+CampusCareers/ ├── src/ │    ├── controller/         # Servlets/Controllers handling requests │    │     ├── AddOpportunity.java │    │     ├── AdminLoginController.java │    │     ├── ApplicantLoginController.java │    │     ├── ApplyOpportunity.java │    │     ├── DeleteOpportunity.java │    │     ├── EditOpportunity.java │    │     ├── FetchAppliedOpportunity.java │    │     ├── FetchOpportunity.java │    │     ├── LogOutController.java │    │     └── RecoverPasswordController.java │    ├── dao/                # Data Access Objects for DB operations │    │     ├── ApplyInterviewDAO.java │    │     ├── InterviewDAO.java │    │     └── RecoverPassword.java │    ├── model/              # JavaBeans / POJOs │    │     ├── Admin.java │    │     ├── Applicant.java │    │     ├── Interview.java │    │     └── OfferCourse.java │    └── util/ │          └── DBConnection.java   # Database connection utility │ ├── WebContent/ │    ├── jsp/                # JSP pages (views) │    │     ├── AddOpportunity.jsp │    │     ├── AdminLogin.jsp │    │     ├── ApplicantLogin.jsp │    │     ├── EditOpportunity.jsp │    │     ├── Index.jsp │    │     ├── RecoverPassword.jsp │    │     ├── ViewAppliedOpportunity.jsp │    │     ├── ViewOpportunityAdmin.jsp │    │     └── ViewOpportunityApplicant.jsp │    ├── css/                # Stylesheets │    │     ├── add_opportunity.css │    │     ├── footer.css │    │     ├── header.css │    │     ├── index.css │    │     ├── login.css │    │     ├── recover_password.css │    │     └── view_opportunity.css │    └── images/             # Static assets │ ├── .gitignore └── README.md
+
+---
+
+## 🚀 Features
+
+- **Admin Panel**
+  - Login/logout functionality
+  - Add, edit, and delete opportunities
+  - View all opportunities created by admins
+
+- **Applicant Panel**
+  - Login/logout functionality
+  - View available opportunities
+  - Apply for active opportunities
+  - View applied opportunities
+
+- **Password Recovery**
+  - Reset password via recovery flow
+
+- **Interview Management**
+  - DAO layer for handling interview-related data
+
+- **Database Integration**
+  - Centralized `DBConnection.java` utility for JDBC connections
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Java Servlets, JSP  
+- **Frontend:** JSP, HTML, CSS  
+- **Database:** MySQL (or any JDBC-compatible DB)  
+- **Build Tool:** Apache Tomcat (for deployment)  
+- **Version Control:** Git  
+
+---
+
+## ⚙️ Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/CampusCareers.git
