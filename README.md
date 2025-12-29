@@ -53,3 +53,44 @@ output screenshots are found in outputs folder
 1. **Clone the repository**
    ```bash
    git clone https://github.com/HariniS1018/campus-careers.git
+   ```
+
+2. **Configure Database**
+   - Create a MySQL database (e.g., `campus_careers`).
+   - Update `DBConnection.java` with your DB credentials.
+
+3. **Deploy on Tomcat**
+   - Copy the project into Tomcat’s `webapps` directory.
+   - Start Tomcat server.
+
+4. **Access Application**
+   - Open browser and go to:  
+     ```
+     http://localhost:8080/CampusCareers/Index.jsp
+     ```
+---
+
+## 👥 User Roles
+
+- **Admin**
+  - Manages opportunities
+  - Views all opportunities
+- **Applicant**
+  - Views and applies for opportunities
+  - Tracks applied opportunities
+
+---
+
+## 📸 Screens (JSP Pages)
+
+- `Index.jsp` → Index page  
+- `AdminLogin.jsp` → Admin login  
+- `ApplicantLogin.jsp` → Applicant login  
+- `AddOpportunity.jsp` → Add new opportunity  
+- `EditOpportunity.jsp` → Edit existing opportunity  
+- `ViewOpportunityAdmin.jsp` → Admin view of opportunities  
+- `ViewOpportunityApplicant.jsp` → Applicant view of opportunities  
+- `ViewAppliedOpportunity.jsp` → List of applied opportunities  
+- `RecoverPassword.jsp` → Password reset  
+
+---
