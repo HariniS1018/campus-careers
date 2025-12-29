@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> -->
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@ pageEncoding="UTF-8"%>
             </div>
         </div>
 
-        <% 
+        <!-- <% 
             String sessMessage = (String) session.getAttribute("message");
             if (sessMessage != null) {
                 out.print("<div class='success'>" + sessMessage + "</div>");
@@ -41,7 +41,7 @@ pageEncoding="UTF-8"%>
                 out.print("<div class='error'>" + sessErrorMsg + "</div>");
                 session.removeAttribute("errorMessage");
             }
-        %>
+        %> -->
 
         <form action="AdminLoginController" method="post" class="form-box">  
             <div class="box">

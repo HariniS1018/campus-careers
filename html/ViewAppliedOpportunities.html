@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+<!-- <%@page import="java.util.List"%>
 <%@page import="model.Interview"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@ String role = (String) session.getAttribute("role");
 if (isLoggedin != null && isLoggedin){
     if ("applicant".equals(role)) {
     %>
-    
+     -->
     <!DOCTYPE html>
     <html>
         <head>
@@ -35,7 +35,16 @@ if (isLoggedin != null && isLoggedin){
                 </div>
             </div>
 
-            <%
+            <div class='card'>
+                <div class='card-title'>Software Engineering</div>
+                <div class='card-text'>Eligible Branches: <b>CSE, IT</b> </div>
+                <div class='card-text'>Company: <b>ABC Company</b> </div>
+                <div class='card-text'>Stipend: <b>25000</b> INR &MediumSpace; &MediumSpace;   CTC: <b>5</b> LPA INR</div>
+                <div class='card-text'>Internship Duration: <b>6</b> months</div>
+                <div class='card-text'>Interview: <b>09:30</b> Hrs on <b>02-01-2026</b> in <b>Company Premises</b></div>
+            </div>            
+
+            <!-- <%
             List<Interview> appliedInterviews = (List<Interview>) request.getAttribute("appliedInterviews");
                 if (appliedInterviews != null) {
                     for (Interview interview : appliedInterviews) {
@@ -55,9 +64,10 @@ if (isLoggedin != null && isLoggedin){
                     } 
                 }
             %>
-            
+             -->
         </body>
     </html>
-<% }
+<!-- <% }
     }
-    %>
+    %> -->
+

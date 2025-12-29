@@ -1,4 +1,4 @@
-<%@page import="model.Interview"%>
+<!-- <%@page import="model.Interview"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -7,7 +7,7 @@ Boolean isLoggedin = (Boolean) session.getAttribute("isLoggedin");
 String role = (String) session.getAttribute("role");
 if (isLoggedin != null && isLoggedin){
     if ("admin".equals(role)) {
-    %>
+    %> -->
     
     <!DOCTYPE html>
     <html>
@@ -39,11 +39,11 @@ if (isLoggedin != null && isLoggedin){
             </div>
 
 
-            <%
+            <!-- <%
             Interview interview = (Interview) request.getAttribute("interview");
                 if (interview != null) {
                 
-            %>
+            %> -->
 
                 <form action="EditOpportunity" method="post" class="form-box">
                     <div class="box">
@@ -56,11 +56,12 @@ if (isLoggedin != null && isLoggedin){
                             <select class="select-box" id="eligible_courses" name="eligible_courses" multiple size="6" required></select>
                         </div>
 
-                        <%
+                        <!-- <%
                             String selectedCourses = new com.google.gson.Gson().toJson(interview.getEligibleCourses());
-                        %>
+                        %> -->
 
                         <script>
+                            const selectedCourses = ["CS", "IT"];
                             const departments = {
                                 "CS": "Computer Science Engineering",
                                 "IT": "Information Technology",
@@ -134,10 +135,10 @@ if (isLoggedin != null && isLoggedin){
                     </div>
                 </form>
                 
-        <%}
-            %>
+        <!-- <%}
+            %> -->
         </body>
     </html>
-<% }
+<!-- <% }
     }
-    %>
+    %> -->

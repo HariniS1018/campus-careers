@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+<!-- <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
 %>
@@ -7,7 +7,7 @@ Boolean isLoggedin = (Boolean) session.getAttribute("isLoggedin");
 String role = (String) session.getAttribute("role");
 if (isLoggedin != null && isLoggedin){
     if ("applicant".equals(role)) {
-    %>
+    %> -->
     <!DOCTYPE html>
     <html>
         <head>
@@ -34,7 +34,23 @@ if (isLoggedin != null && isLoggedin){
                 </div>
             </div>
 
-            <% 
+            <div class='card'>
+                <div class='card-title'>Software Engineering</div>
+                <div class='card-text'>Eligible Branches: <b>CSE, IT</b> </div>
+                <div class='card-text'>Company: <b>ABC Company</b> </div>
+                <div class='card-text'>Stipend: <b>25000</b> INR &MediumSpace; &MediumSpace;   CTC: <b>5</b> LPA INR</div>
+                <div class='card-text'>Internship Duration: <b>6</b> months</div>
+                <div class='card-text'>Interview: <b>09:30</b> Hrs on <b>02-01-2026</b> in <b>Company Premises</b></div>
+                <div class='card-buttons'>
+                    <form action="ApplyOpportunity" method="post">
+                        <input type="hidden" name="offer_id" value="<%= interview.getOfferId() %>"/>
+                        <input type="submit" value="Apply"/>
+                    </form>
+                </div>
+            </div>            
+
+
+            <!-- <% 
                 String sessMessage = (String) session.getAttribute("message");
                 if (sessMessage != null) {
                     out.print("<div class='success'>" + sessMessage + "</div>");
@@ -70,11 +86,11 @@ if (isLoggedin != null && isLoggedin){
             <%      } 
                 }
             %>
-        
+         -->
         </body>
     </html>
 
-<% 
+<!-- <% 
     }
     else{
         session.setAttribute("errorMessage", "Access denied. Applicants only.");
@@ -85,4 +101,4 @@ else {
     session.setAttribute("errorMessage", "Please log in to continue.");
     response.sendRedirect("ApplicantLogin.jsp");
 } 
-%>
+%> -->
